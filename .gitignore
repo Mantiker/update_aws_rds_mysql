@@ -3,7 +3,6 @@ terraform.tfstate*
 
 # temp Terraform
 .terraform/
-.terraform.lock*
 
 # configs, secrets
 *.tfvars
@@ -14,8 +13,8 @@ terraform.tfstate*
 
 # Terraform lock files
 *.tflock
-terraform.tfstate.lock.info
-terraform.tfstate.lock.tcl
+.terraform.tfstate.lock*
+.terraform.lock*
 
 # IDE
 .vscode/

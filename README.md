@@ -25,13 +25,12 @@ Connect to ec2 (mysql client is preinstalled):
 ssh -i "<your_ssh_from_variables.pem>" ec2-user@<ec2_public_dns_from_output>
 ```
 
-in most scenarios password for master user was generated (check with terraform output rds_password)
+❗ WARNING: in most scenarios password for master user was generated/regenerated (check with terraform output rds_password)
 
 ```bash
-mysql -h <rds_endpoint_from_output> -P 3306 -u admin -p
+mysql -h <rds_endpoint_from_output> -P 3306 -u admin -p testdb
 ```
 ```sql
-USE testdb;
 SHOW TABLES;
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -98,5 +97,16 @@ terraform apply
 
 In result only module.rds_mysql.random_password.master_password[0] will be destroyed - it's ok for us. RDS will be in place.
 
-❗ WARNING: to connect under master user you should use password from defined in module config
+❗ WARNING: to connect under master user you should use password defined in module config
 
+#### check data was untached
+
+```bash
+ssh -i "<your_ssh_from_variables.pem>" ec2-user@<ec2_public_dns_from_output>
+```
+```bash
+mysql -h <rds_endpoint_from_output> -P 3306 -u admin -p testdb
+```
+```sql
+SELECT * FROM users;
+```
