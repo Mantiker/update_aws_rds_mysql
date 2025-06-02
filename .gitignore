@@ -1,0 +1,28 @@
+# Local Terraform state
+terraform.tfstate*
+
+# temp Terraform
+.terraform/
+.terraform.lock*
+
+# configs, secrets
+*.tfvars
+*.tfvars.json
+
+# genered
+*.tfplan
+
+# Terraform lock files
+*.tflock
+terraform.tfstate.lock.info
+terraform.tfstate.lock.tcl
+
+# IDE
+.vscode/
+.idea/
+
+# logs
+*.log
+
+# MacOS sys files
+.DS_Store
