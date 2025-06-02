@@ -23,6 +23,7 @@ terraform.tfstate.lock.tcl
 
 # logs
 *.log
+*.txt
 
 # MacOS sys files
 .DS_Store
